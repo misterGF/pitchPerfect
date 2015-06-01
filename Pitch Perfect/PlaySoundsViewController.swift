@@ -44,10 +44,7 @@ class PlaySoundsViewController: UIViewController {
         println("Snail pressed")
         
         //Stop all audio
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
-        
+        stopAllAudio()
         playAudio(0.5)
         
     }
@@ -56,17 +53,14 @@ class PlaySoundsViewController: UIViewController {
         println("Rabbit pressed")
         
         //Stop all audio
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
-        
+        stopAllAudio()
         playAudio(1.5)
         
     }
     
     @IBAction func stopAudio(sender: UIButton) {
     
-        audioPlayer.stop()
+        stopAllAudio()
         
     }
     
@@ -86,10 +80,7 @@ class PlaySoundsViewController: UIViewController {
     func playAudioWithVariablePitch(pitch: Float){
     
         //Stop all audio
-        audioPlayer.stop()
-        audioEngine.stop()
-        audioEngine.reset()
-        
+        stopAllAudio()
         
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -106,6 +97,14 @@ class PlaySoundsViewController: UIViewController {
         
         audioPlayerNode.play()
         
+    }
+    
+    func stopAllAudio()
+    {
+        //Stop all audio
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
     
 }

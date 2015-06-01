@@ -18,11 +18,6 @@ class RecordSoundsViewController: UIViewController,  AVAudioRecorderDelegate {
     
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,6 +26,7 @@ class RecordSoundsViewController: UIViewController,  AVAudioRecorderDelegate {
 
     override func viewWillAppear(animated: Bool) {
         
+        super.viewWillAppear(animated)
         stopBtn.hidden = true
         recordingButton.enabled = true
         recording.text = "Tap to Record"
@@ -80,6 +76,7 @@ class RecordSoundsViewController: UIViewController,  AVAudioRecorderDelegate {
         else
         {
             println("Not successfully saved")
+            recording.text = "Unable to save. Click to try again"
             recordingButton.enabled = true
             stopBtn.hidden = true
         }
